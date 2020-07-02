@@ -2,15 +2,23 @@ import React from "react"
 import Item from './components/Item.js'
 import todosData from './data/todosData.js'
 
-function App(){
+class App extends React.Component {
 
-    const todoItem = todosData.map(todoData => <Item key={todoData.id} item={todoData}/>)
+    constructor() {
+        super()
+        this.state = {
+            todo: todosData
+        }
+    }
 
-    return(
-        <>
-        {todoItem}
-        </>
-    )
+    render() {
+        const todoItem = todosData.map(todoData => <Item key={todoData.id} item={todoData} />)
+        return (
+            <>
+                {todoItem}
+            </>
+        )
+    }
 }
 
 export default App;

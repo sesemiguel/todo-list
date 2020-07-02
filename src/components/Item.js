@@ -1,32 +1,33 @@
 import React from "react"
 
-function Item(props) {
+class Item extends React.Component {
 
-    const isDone = () => {
-        if(props.item.completed === true){
-            return(
-                <>
-                <input type="checkbox" checked="true"/> <s>{props.item.text} </s>
-                <br/>
-                </>
-            )
+    render() {
+        const isDone = () => {
+            if (this.props.item.completed === true) {
+                return (
+                    <>
+                        <input type="checkbox" checked="true" /> <s>{this.props.item.text} </s>
+                        <br />
+                    </>
+                )
+            }
+            else {
+                return (
+                    <>
+                        <input type="checkbox" /> {this.props.item.text}
+                        <br />
+                    </>
+                )
+            }
         }
-        else{
-            return(
-                <>
-                <input type="checkbox"/> {props.item.text}
-                <br/>
-                </>
-            )
-        }
+
+        return (
+            <>
+                {isDone()}
+            </>
+        )
     }
-
-    return (
-        <>
-            {isDone()}
-        </>
-
-    );
 }
 
 export default Item;
