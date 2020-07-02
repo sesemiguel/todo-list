@@ -1,12 +1,31 @@
 import React from "react"
 
-function Item(){
-    return(
-        <div>
-            <input type="checkbox"></input>
-            Check box 
-        </div>
-        
+function Item(props) {
+
+    const isDone = () => {
+        if(props.item.completed === true){
+            return(
+                <>
+                <input type="checkbox" checked="true"/> <s>{props.item.text} </s>
+                <br/>
+                </>
+            )
+        }
+        else{
+            return(
+                <>
+                <input type="checkbox"/> {props.item.text}
+                <br/>
+                </>
+            )
+        }
+    }
+
+    return (
+        <>
+            {isDone()}
+        </>
+
     );
 }
 
