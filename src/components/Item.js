@@ -9,7 +9,7 @@ class Item extends React.Component {
                 <input 
                     type="checkbox" 
                     checked={this.props.item.completed} 
-                    onChange={() => console.log("This has been changed")}
+                    onChange={() => this.props.handleChange(this.props.item.id)}
                 />
                 <p>{this.props.item.text}</p>
                 <br />
